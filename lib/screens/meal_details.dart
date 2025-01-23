@@ -13,6 +13,13 @@ class MealDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.star),
+            onPressed: () {
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
