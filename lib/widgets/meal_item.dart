@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
+import 'package:meals_app/screens/meal_details.dart';
 import 'package:meals_app/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -7,11 +8,21 @@ class MealItem extends StatelessWidget {
   const MealItem({super.key, required this.meal});
   final Meal meal;
   String get complexityText {
-    return meal.complexity.name[0].toUpperCase()+ meal.complexity.name.substring(1);
+    return meal.complexity.name[0].toUpperCase() +
+        meal.complexity.name.substring(1);
   }
+
   String get affordabilityText {
-    return meal.affordability.name[0].toUpperCase()+ meal.affordability.name.substring(1);
+    return meal.affordability.name[0].toUpperCase() +
+        meal.affordability.name.substring(1);
   }
+
+  void _selectMeal(BuildContext context, Meal meal) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) =>
+            MealDetails(meal: meal))); //Navigator.push(context, route)
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -22,7 +33,10 @@ class MealItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          // print("object");
+          _selectMeal(context, meal);
+        },
         child: Stack(
           children: [
             FadeInImage(
@@ -67,16 +81,13 @@ class MealItem extends StatelessWidget {
                             width: 12,
                           ),
                           MealItemTrait(
-                              icon: Icons.work, 
-                              label: complexityText
-                          ),
+                              icon: Icons.work, label: complexityText),
                           const SizedBox(
                             width: 12,
                           ),
                           MealItemTrait(
-                              icon: Icons.attach_money, 
-                              label: affordabilityText
-                          ),
+                              icon: Icons.attach_money,
+                              label: affordabilityText),
                         ],
                       ),
                     ],
