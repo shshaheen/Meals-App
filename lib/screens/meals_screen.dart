@@ -6,10 +6,12 @@ class MealsScreen extends StatelessWidget {
   const MealsScreen({
     super.key, 
     this.title, 
-    required this.meals
+    required this.meals,
+    required this.onToggleFavorite,
     });
   final String? title;
   final List<Meal> meals;
+  final void Function(Meal meal) onToggleFavorite;
   @override
   Widget build(BuildContext context) {
     Widget content =  Center(child: Column(mainAxisSize: MainAxisSize.min,children: [
@@ -21,7 +23,7 @@ class MealsScreen extends StatelessWidget {
     if (meals.isNotEmpty) {
       content =ListView.builder(
         itemCount: meals.length,
-      itemBuilder: (ctx, index) => MealItem(meal: meals[index]),
+      itemBuilder: (ctx, index) => MealItem(meal: meals[index],onToggleFavorite: onToggleFavorite,),
     );
     }
     if(title == null){
