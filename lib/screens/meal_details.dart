@@ -8,17 +8,18 @@ class MealDetails extends ConsumerWidget {
   final Meal meal;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isFavorite=ref.watch(favouriteMealsProvider).contains(meal);
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
         actions: [
           IconButton(
-            icon: const Icon(Icons.star),
+            icon: isFavorite? Icon(Icons.star): Icon(Icons.star_border_outlined),
             onPressed: () {
               bool val = ref
                   .read(favouriteMealsProvider.notifier)
                   .toggleMealFavoriteStatus(meal);
-              var message='';
+              var message = '';
               if (val) {
                 message = "Marked as favorite!";
               } else {
