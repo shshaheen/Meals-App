@@ -13,6 +13,7 @@ class FavoriteMealsNotifier extends StateNotifier<List<Meal>> {
       state = [...state, meal];
       return true;
     }
+    
   }
 }
 
