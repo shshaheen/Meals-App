@@ -5,15 +5,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/providers/filter_provider.dart';
 
 class FiltersScreen extends ConsumerWidget {
+  const FiltersScreen({super.key});
   // const FiltersScreen({super.key});
 
-    // var _glutenFreeFilterSet = false;
-    // var _lactoseFreeFilterSet = false;
-    // var _vegetarianFilterSet = false;
-    // var _veganFilterSet = false;
+  // var _glutenFreeFilterSet = false;
+  // var _lactoseFreeFilterSet = false;
+  // var _vegetarianFilterSet = false;
+  // var _veganFilterSet = false;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final activeFilters = ref.watch(filtersProvider);
     // _glutenFreeFilterSet = activeFilters[Filter.glutenFree]!;
     // _lactoseFreeFilterSet = activeFilters[Filter.lactoseFree]!;
