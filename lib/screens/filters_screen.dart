@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:meals_app/screens/tabs_screen.dart';
-// import 'package:meals_app/widgets/main_drawer.dart';
 import 'package:meals_app/providers/filter_provider.dart';
 
 class FiltersScreen extends ConsumerWidget {
